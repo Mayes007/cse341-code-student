@@ -3,7 +3,6 @@ const app = express();
 const lesson1Controller = require('./controllers/lesson1');
 
 app.get('/', lesson1Controller.sadieRoute);
-
 app.get('/angel', lesson1Controller.angelRoute);
 
 const port= 3000;
