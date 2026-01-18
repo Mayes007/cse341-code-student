@@ -1,0 +1,1 @@
+GET http://localhost:3000/professional # the request above returns a json object with all professional data for Samantha Mayes. No database is connected.
