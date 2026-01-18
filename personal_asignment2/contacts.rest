@@ -1,5 +1,0 @@
-### Get all contacts
-GET http://localhost:3000/contacts.json
-
-### Get single contact
-GET http://localhost:3000/contacts/single?id=PUT_OBJECT_ID_HERE
