@@ -19,7 +19,7 @@ const data = {
     text: 'GitHub',
   },
   contactText:
-    "Feel free to contact him at birchn@byui.edu if you'd like for him to work for you!",
+    "Feel free to contact him at SamanthaTMayes@gmail.com if you'd like for him to work for you!",
 };
 exports.getData = (req, res, next) => {
   // await mongodb call
