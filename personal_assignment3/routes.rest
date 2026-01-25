@@ -1,29 +1,32 @@
+### Get all contacts
+GET http://localhost:3000/contacts
 
-// LOCALHOST ### Get all contacts GET http://localhost:3000contacts
+### Get contact by id
+GET http://localhost:3000/contacts/PUT_ID_HERE
 
-### Get contact by id GET http://localhost:3000/contacts/622023f642f9ab4cd6e060b3
-
-### Create contact POST http://localhost:3000/contacts HTTP/1.1 content-type: application/json
+### Create contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
 
 {
-"firstName":"Maverick", "lastName":"Mayes", "email":"MaverickMayes@gmail.com", "favoriteColor":"black", "birthday":"06/11/2018"
+  "firstName": "Maverick",
+  "lastName": "Mayes",
+  "email": "MaverickMayes@gmail.com",
+  "favoriteColor": "black",
+  "birthday": "2018-06-11"
 }
 
-### PUT contact PUT http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+### Update contact
+PUT http://localhost:3000/contacts/PUT_ID_HERE
+Content-Type: application/json
 
 {
-"firstName":"Samantha", "lastName":"Mayes", "email":"SamanthaTMayes@gmail.com", "favoriteColor":"blue", "birthday":"05/15/2002"
-} ### DELETE contact DELETE http://localhost:3000/contacts/6220b775099269ff7b31ceab HTTP/1.1
-
-
-{
-"firstName":"Maverick", "lastName":"Mayes", "email":"MaverickMayes@gmail.com", "favoriteColor":"black", "birthday":"06/11/2018"
+  "firstName": "Samantha",
+  "lastName": "Mayes",
+  "email": "SamanthaTMayes@gmail.com",
+  "favoriteColor": "blue",
+  "birthday": "2002-05-15"
 }
 
-
-
-{
-"firstName":"Samantha", "lastName":"Mayes", "email":"SamanthaTMayes@gmail.com", "favoriteColor":"blue", "birthday":"05/15/2002"
-}
-
-### DELETE contact DELETE https:/contacts/ HTTP/1.1
+### Delete contact
+DELETE http://localhost:3000/contacts/PUT_ID_HERE
