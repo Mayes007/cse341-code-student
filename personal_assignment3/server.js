@@ -11,7 +11,8 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/', require('./controllers/contracts'));
+  .use('/', require('./routes'));
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);

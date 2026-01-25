@@ -5,7 +5,7 @@ GET http://localhost:3000/contacts
 GET http://localhost:3000/contacts/PUT_ID_HERE
 
 ### Create contact
-POST http://localhost:3000/contacts
+POST http://localhost:3000/controllers/contacts
 Content-Type: application/json
 
 {
