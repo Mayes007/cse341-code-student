@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Debug NodeJS backend project",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/server.js",
+      "program": "${package.json}/server.js",
       "restart": true,
       "console": "integratedTerminal"
     }

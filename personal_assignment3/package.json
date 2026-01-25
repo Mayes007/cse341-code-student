@@ -1,20 +1,28 @@
 {
-  "name": "personal_assignment3",
+  "name": "rest-practice",
   "version": "1.0.0",
-  "description": "Personal Assignment 3 for CSE 341",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
-  
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
-  "author": "Samantha Mayes",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "mongodb": "^7.0.0"
+    "body-parser": "^1.18.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.16.3",
+    "mongodb": "^4.4.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^1.18.4",
+    "prettier": "^2.5.1"
   }
 }
