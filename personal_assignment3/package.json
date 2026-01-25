@@ -4,7 +4,7 @@
   "description": "Personal Assignment 3 for CSE 341",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js"
   
   },
   "author": "Samantha Mayes",
