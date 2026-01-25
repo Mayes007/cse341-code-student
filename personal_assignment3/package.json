@@ -1,7 +1,8 @@
-name": "personal_assignment3",
+{
+  "name": "personal_assignment3",
   "version": "1.0.0",
   "description": "Personal Assignment 3 for CSE 341",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
   
