@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Samantha",
+    "lastName": "Mayes",
+    "email": "SamanthaTmayes@gmail.com",
+    "favoriteColor": "blue",
+    "Birthday": "2002-05-15"
+  },
+  {
+    "firstName": "Angel",
+    "lastName": "Mayes",
+    "email": "AngelMayes@gmail.com",
+    "favoriteColor": "red",
+    "Birthday": "2017-04-19"
+  },
+  {
+    "firstName": "Chico",
+    "lastName": "Mayes",
+    "email": "ChicoMayes@gmail.com",
+    "favoriteColor": "Green",
+    "Birthday": "2007-08-20"
+  }
+]
