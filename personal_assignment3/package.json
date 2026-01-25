@@ -1,5 +1,5 @@
 {
-  "name": "cse341-code-student",
+  "name": "personal_assignment3",
   "version": "1.0.0",
   "description": "This repository contains a collection of code for students that take the CSE 341 course at Brigham Young University - Idaho.",
   "main": "server.js",
