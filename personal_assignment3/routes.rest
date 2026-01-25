@@ -1,62 +1,29 @@
-### Variables
-@localhost = http://localhost:3000
-@render = https://cse341-code-student-wcb9.onrender.com
 
-// ==========================================
-// LOCALHOST
-// ==========================================
+// LOCALHOST ### Get all contacts GET http://localhost:3000contacts
 
-### Get all contacts (Local)
-GET {{localhost}}/contacts
+### Get contact by id GET http://localhost:3000/contacts/622023f642f9ab4cd6e060b3
 
-### Get contact by id (Local)
-GET {{localhost}}/contacts/622023f642f9ab4cd6e060b3
-
-### Create contact (Local)
-POST {{localhost}}/contacts HTTP/1.1
-content-type: application/json
+### Create contact POST http://localhost:3000/contacts HTTP/1.1 content-type: application/json
 
 {
-  "firstName":"Maverick", 
-  "lastName":"Mayes", 
-  "email":"MaverickMayes@gmail.com", 
-  "favoriteColor":"black", 
-  "birthday":"06/11/2018"
+"firstName":"Maverick", "lastName":"Mayes", "email":"MaverickMayes@gmail.com", "favoriteColor":"black", "birthday":"06/11/2018"
 }
 
-// ==========================================
-// RENDER PRODUCTION
-// ==========================================
-
-### Get all contacts (Render)
-GET {{render}}/contacts
-
-### Get contact by id (Render)
-GET {{render}}/contacts/622023f642f9ab4cd6e060b3
-
-### Create contact (Render)
-POST {{render}}/contacts HTTP/1.1
-content-type: application/json
+### PUT contact PUT http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
 
 {
-  "firstName":"Maverick", 
-  "lastName":"Mayes", 
-  "email":"MaverickMayes@gmail.com", 
-  "favoriteColor":"black", 
-  "birthday":"06/11/2018"
-}
+"firstName":"Samantha", "lastName":"Mayes", "email":"SamanthaTMayes@gmail.com", "favoriteColor":"blue", "birthday":"05/15/2002"
+} ### DELETE contact DELETE http://localhost:3000/contacts/6220b775099269ff7b31ceab HTTP/1.1
 
-### PUT contact (Render)
-PUT {{render}}/contacts/6220bcb39cd507e920c75a0b HTTP/1.1
-content-type: application/json
 
 {
-  "firstName":"Samantha", 
-  "lastName":"Mayes", 
-  "email":"SamanthaTMayes@gmail.com", 
-  "favoriteColor":"blue", 
-  "birthday":"05/15/2002"
+"firstName":"Maverick", "lastName":"Mayes", "email":"MaverickMayes@gmail.com", "favoriteColor":"black", "birthday":"06/11/2018"
 }
 
-### DELETE contact (Render)
-DELETE {{render}}/contacts/6220e34083149913680f9a64 HTTP/1.1
+
+
+{
+"firstName":"Samantha", "lastName":"Mayes", "email":"SamanthaTMayes@gmail.com", "favoriteColor":"blue", "birthday":"05/15/2002"
+}
+
+### DELETE contact DELETE https:/contacts/ HTTP/1.1
