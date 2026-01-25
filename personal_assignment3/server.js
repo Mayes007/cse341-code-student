@@ -1,23 +1,32 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const mongodb = require('./db/connect');
+const dotenv = require('dotenv');
+const { MongoClient } = require('mongodb');
 
-const port = process.env.PORT || 8080;
+dotenv.config();
 const app = express();
+const port = process.env.PORT || 3000;
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
-  .use('/', require('./routes'));
+app.use(express.json());
 
-mongodb.initDb((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    app.listen(port);
-    console.log(`Connected to DB and listening on ${port}`);
-  }
+const client = new MongoClient(process.env.MONGODB_URI);
+
+let db;
+
+async function connectDB() {
+  await client.connect();
+  db = client.db('contactsDB');
+  console.log('Connected to MongoDB');
+}
+
+connectDB();
+
+app.use((req, res, next) => {
+  req.db = db;
+  next();
+});
+
+app.use('/contacts', require('./routes/contacts'));
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
