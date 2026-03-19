@@ -10,8 +10,8 @@ export default function UploadSong() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("artist", artist);
+    formData.append("Title", Title);
+    formData.append("Artist", Artist);
     formData.append("file", file);
 
     await pb.collection("songs").create(formData);
@@ -21,8 +21,8 @@ export default function UploadSong() {
 
   return (
     <form onSubmit={handleUpload}>
-      <input placeholder="Title" onChange={(e)=>setTitle(e.target.value)} />
-      <input placeholder="Artist" onChange={(e)=>setArtist(e.target.value)} />
+      <input placeholder="title" onChange={(e)=>setTitle(e.target.value)} />
+      <input placeholder="artist" onChange={(e)=>setArtist(e.target.value)} />
       <input type="file" onChange={(e)=>setFile(e.target.files[0])} />
       <button type="submit">Upload</button>
     </form>
