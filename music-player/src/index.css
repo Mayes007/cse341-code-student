@@ -1,98 +1,21 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #121212;
-  color: white;
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
 }
 
-.app {
-  text-align: center;
-  padding-top: 40px;
+/* Custom scrollbar for that clean look */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 30px;
-  color: #ffffff;
+::-webkit-scrollbar-track {
+  background: #000;
 }
-
-.card {
-  background: #181818;
-  width: 500px;
-  margin: 0 auto;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
 }
-
-.card h2 {
-  text-align: left;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input {
-  padding: 12px;
-  font-size: 16px;
-  background: #282828;
-  border: none;
-  border-radius: 6px;
-  color: white;
-}
-
-input::placeholder {
-  color: #b3b3b3;
-}
-
-input:focus {
-  outline: 2px solid #1db954;
-}
-
-button {
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: #1db954;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-button:hover {
-  background: #1ed760;
-}
-
-.playlist {
-  width: 500px;
-  margin: 40px auto;
-  text-align: left;
-}
-
-.playlist h2 {
-  color: white;
-}
-
-.song {
-  background: #181818;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.song p {
-  margin: 5px 0;
-  color: #b3b3b3;
-}
-
-audio {
-  width: 100%;
-  margin-top: 10px;
+::-webkit-scrollbar-thumb:hover {
+  background: #1DB954;
 }
