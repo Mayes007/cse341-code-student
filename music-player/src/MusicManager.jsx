@@ -42,19 +42,19 @@ const MusicManager = () => {
     } catch (err) { alert("Auth failed! Check rules or password length."); }
   };
 
-  // UPDATED handleUpload function
   const handleUpload = async (e) => {
     e.preventDefault();
-    // Check for the file and ensure the first element exists
+    
+    // Check for the file and ensure the list isn't empty
     if (!selectedFile || selectedFile.length === 0) return alert("Select a file!");
     
     setUploading(true);
     const formData = new FormData();
     
-    // FIX: Access the file at index 0 from the FileList
+    // THE CRITICAL FIX: Access the actual file object at index 0
     const fileToUpload = selectedFile; 
     
-    // formData.append matches the 'audio' field in your dashboard
+    // Field names must be lowercase to match your dashboard
     formData.append('audio', fileToUpload); 
     formData.append('title', titleInput || fileToUpload.name);
     formData.append('artist', artistInput || "Unknown");
@@ -64,13 +64,12 @@ const MusicManager = () => {
       setTitleInput(""); 
       setArtistInput(""); 
       setSelectedFile(null);
-      // Manually reset the file input field if you find it stays "stuck"
-      e.target.reset(); 
+      e.target.reset(); // Clears the file input field
       alert("Upload successful!");
     } catch (err) { 
         console.error("Upload Error:", err);
-        // This triggers if the file structure, field names, or size limits are an issue
-        alert("Upload failed! Check that 'Max file size' in PB is set to 2GB."); 
+        // Alert remains helpful in case of network issues or actual size limits
+        alert("Upload failed! Ensure the file is valid and check PocketBase permissions."); 
     } finally { 
         setUploading(false); 
     }
@@ -122,13 +121,17 @@ const MusicManager = () => {
               <div style={{fontWeight: 'bold'}}>{song.title}</div>
               <div style={{color: '#aaa'}}>{song.artist}</div>
             </div>
-            {/* Using song.audio to match the dashboard */}
-            <audio 
-              controls 
-              preload="metadata"
-              src={pb.files.getUrl(song, song.audio)} 
-              style={{height: '35px', marginRight: '10px'}}
-            />
+            {/* Audio Player Logic uses song.audio to find the file */}
+            {song.audio ? (
+              <audio 
+                controls 
+                preload="metadata"
+                src={pb.files.getUrl(song, song.audio)} 
+                style={{height: '35px', marginRight: '10px'}}
+              />
+            ) : (
+              <span style={{color: '#555', marginRight: '10px'}}>No Audio File</span>
+            )}
             <button onClick={() => pb.collection('songs').delete(song.id)} style={styles.delBtn}>Delete</button>
           </div>
         ))}

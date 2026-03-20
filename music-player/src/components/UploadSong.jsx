@@ -9,21 +9,49 @@ export default function UploadSong() {
   const handleUpload = async (e) => {
     e.preventDefault();
 
+    if (!file) return alert("Please select a file first!");
+
     const formData = new FormData();
-    formData.append("Title", Title);
-    formData.append("Artist", Artist);
-    formData.append("file", file);
+    
+    // FIX 1: Match the lowercase field names in your PocketBase dashboard
+    formData.append("title", title); 
+    formData.append("artist", artist);
+    
+    // FIX 2: Change "file" to "audio" to match your collection schema
+    formData.append("audio", file); 
 
-    await pb.collection("songs").create(formData);
-
-    alert("Song uploaded!");
+    try {
+      await pb.collection("songs").create(formData);
+      alert("Song uploaded successfully!");
+      // Reset form
+      setTitle("");
+      setArtist("");
+      setFile(null);
+      e.target.reset();
+    } catch (err) {
+      console.error("Upload Error:", err);
+      alert("Upload failed. Make sure the 'audio' field exists in PB.");
+    }
   };
 
   return (
     <form onSubmit={handleUpload}>
-      <input placeholder="title" onChange={(e)=>setTitle(e.target.value)} />
-      <input placeholder="artist" onChange={(e)=>setArtist(e.target.value)} />
-      <input type="file" onChange={(e)=>setFile(e.target.files[0])} />
+      <input 
+        placeholder="Title" 
+        value={title}
+        onChange={(e) => setTitle(e.target.value)} 
+      />
+      <input 
+        placeholder="Artist" 
+        value={artist}
+        onChange={(e) => setArtist(e.target.value)} 
+      />
+      {/* setFile(e.target.files) is correct here for a single file upload */}
+      <input 
+        type="file" 
+        accept="audio/*"
+        onChange={(e) => setFile(e.target.files)} 
+      />
       <button type="submit">Upload</button>
     </form>
   );
