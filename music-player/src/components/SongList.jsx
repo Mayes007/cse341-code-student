@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import pb from "../pocketbase";
+import pb from "../lib/pocketbase";
 
 export default function SongList() {
   const [songs, setSongs] = useState([]);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import pb from "../pocketbase";
+import pb from "../lib/pocketbase";
 
 export default function UploadSong() {
   const [title, setTitle] = useState("");
