@@ -1,38 +1,239 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* GLOBAL RESET */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0a0a0a, #000000);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* APP CONTAINER */
+.app {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
+/* HERO HEADER */
+.hero {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 25px #ffd700;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 20px 0 40px;
+}
+
+/* NAV LINKS */
+.nav-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-link:hover {
+  color: white;
+}
+
+/* ACTIVE LINK 🔥 */
+.nav-link.active {
+  color: white;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+/* UNDERLINE ANIMATION */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ffd700;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* PAGE WRAPPER */
+.page-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* PAGE CONTENT */
+.page {
+  padding: 20px;
+}
+
+/* SECTION BOXES */
+.section {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.section:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+/* CARD GRID */
+.card-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* CARD STYLE */
+.card {
+  flex: 1;
+  min-width: 250px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* CARD HOVER 🔥 */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
+/* TEXT STYLES */
+h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #ff4c4c;
+}
+
+/* LIST CLEANUP */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* CONTENT ALIGNMENT */
+.content-container {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ✨ QUOTE STYLE (NEW 🔥) */
+.quote {
+  background: #111;
+  padding: 15px;
+  border-left: 4px solid #ffd700;
+  margin: 12px 0;
+  border-radius: 8px;
+  font-style: italic;
+  transition: 0.3s;
+}
+
+.quote:hover {
+  color: #ffd700;
+  transform: scale(1.02);
+}
+
+/* 🌌 SUBTLE STAR EFFECT */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* RESPONSIVE 📱 */
+@media (max-width: 768px) {
+  .card-grid {
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+
+/* ⚔️ ANAKIN (RED) */
+.card.anakin {
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.card.anakin:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+}
+
+/* 🔵 LEIA (BLUE) */
+.card.leia {
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.card.leia:hover {
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.7);
+}
+
+/* 🌠 MOVING STARS (UPGRADE) */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: moveStars 80s linear infinite;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@keyframes moveStars {
   from {
-    transform: rotate(0deg);
+    transform: translate(0, 0);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-600px, -600px);
   }
 }

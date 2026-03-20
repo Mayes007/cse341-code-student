@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+
+import Anakin from "./pages/Anakin";
+import Leia from "./pages/Leia";
+import Comparison from "./pages/Comparison";
+import Quotes from "./pages/Quotes";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        
+        {/* Header */}
+        <header className="hero">
+          <h1>Star Wars Character Comparison</h1>
+          <p>Exploring the similarities between Anakin and Leia</p>
+        </header>
+
+        {/* Navigation 🔥 */}
+        <nav className="nav">
+          <NavLink to="/" end className="nav-link">
+            Anakin
+          </NavLink>
+
+          <NavLink to="/leia" className="nav-link">
+            Princess Leia
+          </NavLink>
+
+          <NavLink to="/comparison" className="nav-link">
+            Comparison
+          </NavLink>
+
+          <NavLink to="/quotes" className="nav-link">
+            Quotes
+          </NavLink>
+        </nav>
+
+        {/* Page Content */}
+        <div className="page-container">
+          <Routes>
+            <Route path="/" element={<Anakin />} />
+            <Route path="/leia" element={<Leia />} />
+            <Route path="/comparison" element={<Comparison />} />
+            <Route path="/quotes" element={<Quotes />} />
+          </Routes>
+        </div>
+
+      </div>
+    </Router>
   );
 }
 
